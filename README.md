@@ -1,4 +1,4 @@
-# corriera [![Build Status](https://secure.travis-ci.org/parroit/corriera.png?branch=master)](http://travis-ci.org/parroit/corriera)
+# corriera [![Build Status](https://secure.travis-ci.org/parroit/corriera.png?branch=master)](http://travis-ci.org/parroit/corriera) [https://badge.fury.io/js/corriera.png](https://npmjs.org/search?q=corriera)
 
 An EventBus system for node.js
 
