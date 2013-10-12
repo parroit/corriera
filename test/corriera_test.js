@@ -124,6 +124,23 @@ describe('EventBus',function(){
         });
     });
 
+    describe("removeListener",function() {
+        it("should do what it say",function(){
+            var counter = 0;
+            var listener = function () {
+                counter++;
+            };
+
+            eventBus.on('test',/(.*)/, listener);
+            eventBus.emit('test','any');
+            eventBus.removeListener('test',listener)
+            eventBus.emit('test','any');
+
+            expect(counter).to.be.equal(1);
+
+
+        });
+    });
 
     describe("on",function() {
         it("should throw on falsy event name",function(){
