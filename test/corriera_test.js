@@ -1,3 +1,11 @@
+/*
+ * corriera
+ * https://github.com/parroit/corriera
+ *
+ * Copyright (c) 2013 Andrea Parodi
+ * Licensed under the MIT license.
+ */
+
 'use strict';
 
 var eventBus = require('../lib/corriera.js');
@@ -15,13 +23,27 @@ describe('EventBus',function(){
     });
 
     describe("emit",function() {
+        it("should pass arguments to listeners",function(){
+            eventBus.once('test',/^param$/,function(one,two){
+                expect(one).to.be.equal(1);
+                expect(two).to.be.equal(2);
+            });
+
+            eventBus.emit('test','param',1,2);
+
+
+
+        });
+
+
         it("should broadcast event to matched listeners",function(){
             var called = false;
-            eventBus.on('test',/^param$/,function(){
+            eventBus.once('test',/^param$/,function(){
                 called = true;
             });
 
             eventBus.emit('test','param');
+
 
             expect(called).to.be.true
 
@@ -29,12 +51,12 @@ describe('EventBus',function(){
 
         it("should not broadcast event to non matched listeners",function(){
             var uncalled = false;
-            eventBus.on('test',/^param$/,function(){
+            eventBus.once('test',/^param$/,function(){
                 uncalled  = true;
             });
 
             var called = false;
-            eventBus.on('test',/^param-not$/,function(){
+            eventBus.once('test',/^param-not$/,function(){
                 called = true;
             });
 
