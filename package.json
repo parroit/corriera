@@ -1,7 +1,7 @@
 {
   "name": "corriera",
   "description": "An EventBus system for node.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/parroit/corriera",
   "author": {
     "name": "Andrea Parodi",
